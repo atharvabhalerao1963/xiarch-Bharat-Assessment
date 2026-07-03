@@ -1,7 +1,7 @@
 """
 This file centralizes all the application's configuration. Instead of hardcoding values like API keys,
-debug mode, or application settings throughout the project, everything is loaded from the .env file and 
-accessed through a single settings object. This is used makes the application secure, maintainable, and easy to 
+debug mode, or application settings throughout the project, everything is loaded from the .env file and
+accessed through a single settings object. This makes the application secure, maintainable, and easy to
 configure for different environments.
 """
 
@@ -24,7 +24,11 @@ class Settings:
 
         # API Keys
         self.tavily_api_key = os.getenv("TAVILY_API_KEY", "")
-        self.openai_api_key = os.getenv("OPENAI_API_KEY", "")
+        self.gemini_api_key = os.getenv("GEMINI_API_KEY", "")
+
+        # LLM Configuration
+        self.llm_provider = os.getenv("LLM_PROVIDER", "gemini")
+        self.llm_model = os.getenv("LLM_MODEL", "gemini-2.5-flash")
 
         # Research Settings
         self.max_search_results = int(
@@ -37,6 +41,10 @@ class Settings:
             "exports"
         )
 
+        # tavily_api_key
+        self.tavily_api_key = os.getenv(
+         "TAVILY_API_KEY","")
 
 
-settings = Settings() # It creates one global instance of the Settings class.
+# Singleton settings object
+settings = Settings()
