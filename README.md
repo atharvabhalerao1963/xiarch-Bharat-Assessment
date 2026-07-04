@@ -1,62 +1,93 @@
 # 🤖 Autonomous Research Agent
 
-> **Xiarch Bharat – Assessment Option 1**
+An AI-powered autonomous research system that plans, searches, analyzes, and summarizes information from multiple external sources into a structured research report.
 
-An AI-powered Autonomous Research Agent that automatically plans research, gathers information from multiple external sources, extracts and filters relevant content, and generates a structured research report with actionable insights.
+---
+
+# 🚀 Quick Start
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/atharvabhalerao1963/Autonomous-Research-Agent.git
+
+cd Autonomous-Research-Agent
+```
+
+## 2. Create a Virtual Environment
+
+### macOS / Linux
+
+```bash
+python -m venv venv
+
+source venv/bin/activate
+```
+
+### Windows
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+## 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 4. Configure Environment Variables
+
+Create a `.env` file in the project root.
+
+```env
+GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
+TAVILY_API_KEY=YOUR_TAVILY_API_KEY
+```
+
+## 5. Run the Application
+
+```bash
+streamlit run app/ui.py
+```
+
+The application will be available at:
+
+```
+http://localhost:8501
+```
+
+---
+
+# ✨ Features
+
+* Autonomous research planning using Google Gemini
+* Dynamic source selection based on the research topic
+* Parallel web search across multiple external sources
+* Intelligent content extraction using Trafilatura
+* Duplicate removal and semantic relevance filtering
+* AI-generated structured research reports
+* Export reports as Markdown and PDF
+* Local research history using SQLite
+* Interactive Streamlit user interface
 
 ---
 
 # 📌 Project Overview
 
-The Autonomous Research Agent is designed to perform end-to-end research on any user-provided topic with minimal human intervention.
+The **Autonomous Research Agent** performs end-to-end research with minimal human intervention.
 
-Instead of relying on hardcoded rules or predefined responses, the system uses a Large Language Model (LLM) to autonomously:
+Instead of relying on predefined workflows or hardcoded responses, the system uses a Large Language Model (LLM) to understand the research objective, determine an appropriate search strategy, collect information from multiple sources, filter irrelevant content, and generate a structured report.
 
-- Understand the user's research objective
-- Create a research plan
-- Select appropriate information sources
-- Search multiple external resources
-- Extract article content
-- Remove duplicate and irrelevant information
-- Generate a structured research report
-- Export reports in Markdown and PDF
-- Store previous research history
-
-The project follows a modular architecture where every component has a single responsibility, making the system scalable, maintainable, and easy to extend.
-
----
-
-# 🎯 Assignment Requirements
-
-| Requirement | Status |
-|------------|--------|
-| Accept User Query | ✅ |
-| Search External Sources | ✅ |
-| Extract Relevant Information | ✅ |
-| Remove Duplicate Content | ✅ |
-| Remove Irrelevant Content | ✅ |
-| Generate Structured Summary | ✅ |
-| Key Points | ✅ |
-| Important Findings | ✅ |
-| References | ✅ |
-| Actionable Insights | ✅ |
-
----
-
-# ⭐ Bonus Features
-
-- ✅ Autonomous source selection using Gemini
-- ✅ Parallel web search
-- ✅ Markdown export
-- ✅ PDF export
-- ✅ SQLite-based research history
-- ✅ Streamlit user interface
+The project follows a modular architecture where every component has a single responsibility, making the system easier to maintain, test, and extend.
 
 ---
 
 # 🏗️ System Architecture
 
-```
+```text
                     User
                       │
                       ▼
@@ -91,106 +122,24 @@ The project follows a modular architecture where every component has a single re
 
 # ⚙️ Workflow
 
-### Step 1 – User Query
+The research pipeline follows a sequential autonomous workflow:
 
-The user enters a research topic through the Streamlit interface.
-
-Example:
-
-```
-Latest AI Regulations in Europe
-```
-
----
-
-### Step 2 – Autonomous Planning
-
-Gemini analyzes the query and automatically creates a structured research plan.
-
-The planner identifies:
-
-- User intent
-- Keywords
-- Search strategy
-- Preferred sources
-- Number of search results
-
----
-
-### Step 3 – Source Selection
-
-Based on the research plan, the agent determines appropriate external sources instead of using predefined websites.
-
-Examples include:
-
-- Government websites
-- Official documentation
-- Academic sources
-- Trusted news platforms
-
----
-
-### Step 4 – Parallel Information Gathering
-
-Multiple search tasks are executed concurrently to improve research speed and source diversity.
-
----
-
-### Step 5 – Content Extraction
-
-Each webpage is downloaded and processed using Trafilatura to extract the primary textual content.
-
----
-
-### Step 6 – Data Processing
-
-The extracted documents undergo several processing stages:
-
-- Cleaning
-- Duplicate removal
-- Semantic relevance filtering
-
-Semantic filtering is implemented using sentence embeddings instead of repeated LLM calls to improve efficiency, reduce API usage, and increase scalability.
-
----
-
-### Step 7 – Context Building
-
-Relevant documents are merged into a unified research context while preserving useful information from multiple sources.
-
----
-
-### Step 8 – AI Summarization
-
-Gemini generates a structured report containing:
-
-- Executive Summary
-- Key Points
-- Important Findings
-- References
-- Actionable Insights
-- Limitations
-
----
-
-### Step 9 – Report Generation
-
-The report can be exported as:
-
-- Markdown
-- PDF
-
----
-
-### Step 10 – Memory
-
-Each completed research report is stored inside a local SQLite database, allowing previous searches to be retrieved later.
+1. User submits a research query.
+2. Gemini creates a structured research plan.
+3. The agent selects the most appropriate source categories.
+4. Multiple searches are executed in parallel.
+5. Web content is extracted and cleaned.
+6. Duplicate documents are removed.
+7. Semantic relevance filtering retains only useful information.
+8. A unified research context is created.
+9. Gemini generates a structured report.
+10. The report is exported and stored in SQLite memory.
 
 ---
 
 # 📂 Project Structure
 
-```
+```text
 Autonomous-Research-Agent/
 
 ├── agent/
@@ -214,183 +163,59 @@ Autonomous-Research-Agent/
 
 ---
 
-# 🛠️ Technologies Used
+# 🛠️ Technology Stack
 
-## Programming Language
-
-- Python
-
-## LLM
-
-- Google Gemini 2.5 Flash
-
-## Search
-
-- Tavily Search API
-
-## Content Extraction
-
-- Trafilatura
-
-## Semantic Search
-
-- Sentence Transformers
-- all-MiniLM-L6-v2
-
-## Database
-
-- SQLite
-
-## User Interface
-
-- Streamlit
-
-## Data Validation
-
-- Pydantic
-
-## PDF Generation
-
-- ReportLab
+| Category           | Technology              |
+| ------------------ | ----------------------- |
+| Language           | Python                  |
+| LLM                | Google Gemini 2.5 Flash |
+| Search             | Tavily Search API       |
+| Content Extraction | Trafilatura             |
+| Semantic Filtering | Sentence Transformers   |
+| Embedding Model    | all-MiniLM-L6-v2        |
+| Database           | SQLite                  |
+| UI                 | Streamlit               |
+| Validation         | Pydantic                |
+| PDF Generation     | ReportLab               |
 
 ---
 
-# 💡 Design Decisions
+# 💡 Key Design Decisions
 
-## Why Gemini?
+### Why Gemini?
 
-Gemini is used for reasoning-intensive tasks such as research planning and structured report generation because it provides reliable structured outputs and strong reasoning capabilities.
+Gemini is responsible only for reasoning-intensive tasks such as research planning and structured report generation, ensuring efficient use of LLM resources.
 
----
+### Why Semantic Filtering?
 
-## Why Tavily?
+Semantic filtering is performed using sentence embeddings rather than repeated LLM calls. This significantly reduces latency, API usage, and operational cost while maintaining high-quality document selection.
 
-Tavily is optimized for AI agents and returns high-quality search results with metadata, making it well suited for autonomous research workflows.
+### Why Parallel Search?
 
----
+Executing multiple searches concurrently improves response time and increases the diversity of retrieved information.
 
-## Why Semantic Filtering instead of LLM Filtering?
+### Why SQLite?
 
-Initially, relevance filtering was performed using Gemini.
+SQLite provides lightweight local persistence without requiring additional infrastructure, making it suitable for storing research history.
 
-However, repeated LLM calls significantly increased latency and API usage.
+### Why Streamlit?
 
-The implementation was redesigned to use sentence embeddings, allowing semantic similarity calculations locally.
-
-Benefits include:
-
-- Faster execution
-- Lower API cost
-- Better scalability
-- Reduced dependency on LLM quota
-
-The LLM is therefore reserved only for high-level reasoning tasks.
-
----
-
-## Why SQLite?
-
-SQLite provides lightweight local persistence without requiring any external database server.
-
-It is sufficient for storing research history and keeps the project self-contained.
-
----
-
-## Why Streamlit?
-
-The project is designed as a standalone AI application.
-
-Since no REST API was required by the assignment, Streamlit provides a simpler and more user-friendly interface than introducing an additional FastAPI layer.
-
----
-
-# 🚀 Installation
-
-Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
-Move into the project
-
-```bash
-cd Autonomous-Research-Agent
-```
-
-Create a virtual environment
-
-```bash
-python -m venv venv
-```
-
-Activate it
-
-### macOS/Linux
-
-```bash
-source venv/bin/activate
-```
-
-### Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# 🔑 Environment Variables
-
-Create a `.env` file.
-
-```
-GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
-
-TAVILY_API_KEY=YOUR_TAVILY_API_KEY
-```
-
----
-
-# ▶️ Running the Application
-
-```bash
-python -m streamlit run app/ui.py
-```
-
----
-
-# 📸 Sample Output
-
-The application generates a structured report containing:
-
-- Executive Summary
-- Key Points
-- Findings
-- References
-- Actionable Insights
-
-The report can be downloaded in Markdown and PDF formats.
+The project is designed as a standalone AI application. Streamlit offers a simple and interactive interface without the need for a separate backend API.
 
 ---
 
 # 🔮 Future Improvements
 
-Possible future enhancements include:
+Potential future enhancements include:
 
-- Multi-agent research collaboration
-- Vector database integration
-- Live web crawling
-- Citation confidence scoring
-- Interactive report editing
-- REST API support
-- Cloud deployment
+* Multi-agent collaboration
+* Vector database integration
+* Citation confidence scoring
+* Streaming report generation
+* REST API using FastAPI
+* Docker support
+* Cloud deployment
+* Authentication and user management
 
 ---
 
@@ -400,4 +225,4 @@ Possible future enhancements include:
 
 AI & ML Engineer | Data Science Enthusiast
 
-Xiarch Bharat Assessment Submission
+**Xiarch Bharat – Autonomous Research Agent Assessment**
