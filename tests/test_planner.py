@@ -1,3 +1,4 @@
+# run : test_planner.py
 from agent.planner import ResearchPlanner
 
 from models.schemas import UserQuery

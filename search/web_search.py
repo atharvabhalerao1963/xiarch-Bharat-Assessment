@@ -30,7 +30,7 @@ class TavilySearch:
         )
 
         response = self.client.search(
-            query=task.category,
+            query=task.query,
             max_results=task.max_results,
             search_depth="advanced"
         )

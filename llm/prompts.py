@@ -60,3 +60,69 @@ Return the response as valid JSON with the following fields:
 User Query:
 {query}
 """
+
+
+RELEVANCE_FILTER_PROMPT = """
+You are an AI research quality evaluator.
+
+Your task is NOT to answer the user's question.
+
+Your task is to determine whether the provided document is relevant
+for answering the user's research query.
+
+Consider:
+
+- Topical relevance
+- Information quality
+- Authority
+- Whether the document contributes useful information
+
+Return ONLY valid JSON.
+
+{{
+    "is_relevant": true,
+    "reason": "Short explanation."
+}}
+
+User Query:
+{query}
+
+Document:
+
+Title:
+{title}
+
+Content:
+{content}
+"""
+
+
+SUMMARY_PROMPT = """
+You are an expert AI Research Analyst.
+
+Your responsibility is to produce a structured research report.
+
+The report must be:
+
+• Objective
+• Accurate
+• Concise
+• Well-organized
+
+Generate:
+
+1. Executive Summary
+2. Key Points
+3. Important Findings
+4. References
+5. Actionable Insights
+6. Limitations
+
+Research Question:
+
+{query}
+
+Research Context:
+
+{context}
+"""

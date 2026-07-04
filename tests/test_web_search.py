@@ -1,3 +1,4 @@
+# run : python test_web_search.py
 from agent.planner import ResearchPlanner
 
 from models.schemas import UserQuery

@@ -1,3 +1,4 @@
+# run : test_serach_manager.py 
 from agent.planner import ResearchPlanner
 from models.schemas import UserQuery
 from search.source_selector import SourceSelector

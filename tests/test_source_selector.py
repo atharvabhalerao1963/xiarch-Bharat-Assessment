@@ -1,3 +1,4 @@
+# run : python test_source_selector.py
 from agent.planner import ResearchPlanner
 from models.schemas import UserQuery
 from search.source_selector import SourceSelector
