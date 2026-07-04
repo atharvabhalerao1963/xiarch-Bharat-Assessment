@@ -1,0 +1,17 @@
+.main {
+    padding-top: 2rem;
+}
+
+.stButton>button {
+    width: 100%;
+    height: 3rem;
+    font-size: 18px;
+}
+
+.stTextInput>div>div>input {
+    font-size: 18px;
+}
+
+h1 {
+    color: #2563eb;
+}

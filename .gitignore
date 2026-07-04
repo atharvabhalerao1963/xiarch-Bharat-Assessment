@@ -5,9 +5,12 @@ venv/
 # Environment variables
 .env
 
-# Python cache
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Database
+*.db
 
 # Exported reports
 exports/*.pdf
@@ -20,5 +23,8 @@ exports/*.md
 # macOS
 .DS_Store
 
-# History
-.history
+# Logs
+*.log
+
+# Streamlit secrets
+.streamlit/secrets.toml
